@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="10" failures="6" name="com.tannv.controler.UserControllerUnitTest" time="2.644" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.66-b17"/>
+    <property name="user.country.format" value="US_POSIX"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/nguyen.van.tan/Desktop/tools"/>
+    <property name="java.runtime.version" value="1.8.0_66-b17"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/zg/m6mx3r4s5gz4gz6qwsclcdq9xyhtlm/T/"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="classworlds.conf" value="/usr/local/Cellar/maven32/3.2.5/libexec/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/nguyen.van.tan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.12.3"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/nguyen.van.tan"/>
+    <property name="user.timezone" value="Asia/Ho_Chi_Minh"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="nguyen.van.tan"/>
+    <property name="java.class.path" value="/usr/local/Cellar/maven32/3.2.5/libexec/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="debug"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean verify sonar:sonar -X"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_66"/>
+    <property name="java.ext.dirs" value="/Users/nguyen.van.tan/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/local/Cellar/maven32/3.2.5/libexec"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_get_by_id_success" time="1.671">
+    <failure message="Content type expected:&lt;application/json;charset=UTF-8&gt; but was:&lt;application/xml;charset=UTF-8&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Content type expected:&lt;application/json;charset=UTF-8&gt; but was:&lt;application/xml;charset=UTF-8&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers$1.match(ContentResultMatchers.java:82)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_get_by_id_success(UserControllerUnitTest.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:56.850 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+11:35:56.855 [main] INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+11:35:56.865 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:56.866 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:57.080 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+11:35:57.121 [main] INFO com.tannv.controller.UserController - getting user with id: 1
+</system-out>
+    <system-err>May 12, 2017 11:35:56 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:56 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:56 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:56 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:56 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:56 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4e4aea35
+May 12, 2017 11:35:57 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 2 ms
+</system-err>
+  </testcase>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_create_user_fail_409_conflict" time="0.207">
+    <failure message="Status expected:&lt;409&gt; but was:&lt;400&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;409&gt; but was:&lt;400&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$10.match(StatusResultMatchers.java:664)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_create_user_fail_409_conflict(UserControllerUnitTest.java:135)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:57.283 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:57.285 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:57.350 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+</system-out>
+    <system-err>May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:57 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2da59753
+May 12, 2017 11:35:57 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 1 ms
+May 12, 2017 11:35:57 AM org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable
+WARNING: Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@66746f57; line: 1, column: 2]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@66746f57; line: 1, column: 2]
+</system-err>
+  </testcase>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_delete_user_success" time="0.098"/>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_update_user_success" time="0.106">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;400&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;400&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$10.match(StatusResultMatchers.java:664)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_update_user_success(UserControllerUnitTest.java:154)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:57.607 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:57.607 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:57.635 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+</system-out>
+    <system-err>May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:57 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@47f4e407
+May 12, 2017 11:35:57 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 0 ms
+May 12, 2017 11:35:57 AM org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable
+WARNING: Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@44040454; line: 1, column: 2]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@44040454; line: 1, column: 2]
+</system-err>
+  </testcase>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_get_by_id_fail_404_not_found" time="0.092"/>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_get_all_success" time="0.091">
+    <failure message="Content type expected:&lt;application/json;charset=UTF-8&gt; but was:&lt;application/xml;charset=UTF-8&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Content type expected:&lt;application/json;charset=UTF-8&gt; but was:&lt;application/xml;charset=UTF-8&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers$1.match(ContentResultMatchers.java:82)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_get_all_success(UserControllerUnitTest.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:57.808 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:57.809 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:57.825 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+11:35:57.825 [main] INFO com.tannv.controller.UserController - getting all users
+</system-out>
+    <system-err>May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:57 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@60957c0f
+May 12, 2017 11:35:57 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:57 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 0 ms
+</system-err>
+  </testcase>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_delete_user_fail_404_not_found" time="0.166"/>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_create_user_success" time="0.066">
+    <failure message="Status expected:&lt;201&gt; but was:&lt;400&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;201&gt; but was:&lt;400&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$10.match(StatusResultMatchers.java:664)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_create_user_success(UserControllerUnitTest.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:58.056 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:58.059 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:58.080 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+</system-out>
+    <system-err>May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:58 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@c055c54
+May 12, 2017 11:35:58 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 0 ms
+May 12, 2017 11:35:58 AM org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable
+WARNING: Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@2f4205be; line: 1, column: 2]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@2f4205be; line: 1, column: 2]
+</system-err>
+  </testcase>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_cors_headers" time="0.072"/>
+  <testcase classname="com.tannv.controler.UserControllerUnitTest" name="test_update_user_fail_404_not_found" time="0.075">
+    <failure message="Status expected:&lt;404&gt; but was:&lt;400&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;404&gt; but was:&lt;400&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:54)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:81)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$10.match(StatusResultMatchers.java:664)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.tannv.controler.UserControllerUnitTest.test_update_user_fail_404_not_found(UserControllerUnitTest.java:171)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>11:35:58.195 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing &apos;getPersistenceUtil&apos;. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+11:35:58.195 [main] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+11:35:58.225 [main] INFO com.tannv.fillter.CORSFilter - Adding CORS Headers ........................
+</system-out>
+    <system-err>May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.get(int)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;com.tannv.model.User&gt; com.tannv.controller.UserController.update(int,com.tannv.model.User)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users/{id}],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.delete(int)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.lang.Void&gt; com.tannv.controller.UserController.create(com.tannv.model.User,org.springframework.web.util.UriComponentsBuilder)
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+INFO: Mapped &quot;{[/users],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.tannv.model.User&gt;&gt; com.tannv.controller.UserController.getAll()
+May 12, 2017 11:35:58 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5e8ac0e1
+May 12, 2017 11:35:58 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet &apos;&apos;
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization started
+May 12, 2017 11:35:58 AM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet &apos;&apos;: initialization completed in 0 ms
+May 12, 2017 11:35:58 AM org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver handleHttpMessageNotReadable
+WARNING: Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@78365cfa; line: 1, column: 2]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.tannv.model.User: no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
+ at [Source: java.io.PushbackInputStream@78365cfa; line: 1, column: 2]
+</system-err>
+  </testcase>
+</testsuite>
