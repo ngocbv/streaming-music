@@ -20,5 +20,9 @@
     "soundcloud": "^3.1.2",
     "soundcloud-audio": "^1.1.0",
     "webpack": "~1.13.3"
+  },
+  "scripts": {
+    "webpack:deploy": "webpack -p",
+    "heroku-postbuild": "npm run webpack:deploy"
   }
 }
