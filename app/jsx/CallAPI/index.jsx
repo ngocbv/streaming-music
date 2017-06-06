@@ -1,3 +1,5 @@
-// Add modules api here
+import Movie from "./Movie";
+
 module.exports = {
+  Movie,
 };
