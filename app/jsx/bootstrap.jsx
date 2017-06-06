@@ -4,6 +4,8 @@ import {Router, Route, Link, browserHistory} from "react-router"
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
+global.CallAPI = require("./CallAPI");
+
 import App from "./app";
 
 const router = (
