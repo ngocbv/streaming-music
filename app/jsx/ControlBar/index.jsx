@@ -1,8 +1,9 @@
-import PlayIcon from "material-ui/svg-icons/av/play-circle-filled";
-import PauseIcon from "material-ui/svg-icons/av/pause-circle-filled";
+import PlayIcon from "material-ui/svg-icons/av/play-arrow";
+import PauseIcon from "material-ui/svg-icons/av/pause";
 import VolumeDown from "material-ui/svg-icons/av/volume-down";
 import VolumeUp from "material-ui/svg-icons/av/volume-up";
 import VolumeOff from "material-ui/svg-icons/av/volume-off";
+import FullScreen from "material-ui/svg-icons/navigation/fullscreen";
 
 class ControlBar extends React.Component {
   constructor(props) {
@@ -43,27 +44,42 @@ class ControlBar extends React.Component {
       <VolumeOff />);
 
     return (
-      <div>
-        {this.props.playing ?
-          <PauseIcon
-            onClick={this.props.onPause}
-          /> :
-          <PlayIcon
-            onClick={this.props.onPlay}
+      <div className="control-bar">
+        <span className="seek-slider">
+          <mui.Slider
+            onChange={this.handleChangeSeek}
+            onDragStop={this.handleDragStopSeek}
+            value={this.props.played}
+            sliderStyle={{color: "blue"}}
+            style={{color: "blue"}}
           />
-        }
-        <div onClick={this.handleClickVolumeIcon}>{volumeIcon}</div>
-        <mui.Slider
-          style={{width: 100}}
-          onChange={this.handleChangeVolume}
-          defaultValue={0.8}
-          value={volume}
-        />
-        <mui.Slider
-          onChange={this.handleChangeSeek}
-          onDragStop={this.handleDragStopSeek}
-          value={this.props.played}
-        />
+        </span>
+        <div className="control">
+          <span className="playing">
+            {this.props.playing ?
+              <PauseIcon
+                onClick={this.props.onPause}
+              /> :
+              <PlayIcon
+                onClick={this.props.onPlay}
+              />
+            }
+          </span>
+          <span className="volume">
+            <div onClick={this.handleClickVolumeIcon}>{volumeIcon}</div>
+          </span>
+          <span className="volume-slider">
+            <mui.Slider
+              style={{width: 100}}
+              onChange={this.handleChangeVolume}
+              defaultValue={0.8}
+              value={volume}
+            />
+          </span>
+          <span className="full-screen">
+            <FullScreen onClick={this.props.onFullScreen} />
+          </span>
+        </div>
       </div>
     );
   }

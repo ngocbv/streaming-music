@@ -1,0 +1,60 @@
+.control-bar {
+  float: left;
+  width: 100%;
+  background-color: black;
+
+  .seek-slider {
+    float: left;
+    width: calc(100% - 20px);
+    margin: 0 10px 0 10px;
+
+    div {
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+
+  .control {
+    float: left;
+    width: 100%;
+
+    .playing {
+      float: left;
+      width: 33px;
+      padding-left: 15px;
+
+      svg {
+        color: white !important;
+      }
+    }
+
+    .volume {
+      float: left;
+      width: 33px;
+
+      svg {
+        color: white !important;
+      }
+    }
+
+    .volume-slider {
+      float: left;
+      width: 110px;
+      padding-top: 3px;
+
+      div {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+    }
+
+    .full-screen {
+      float: right;
+      width: 33px;
+
+      svg {
+        color: white !important;
+      }
+    }
+  }
+}
