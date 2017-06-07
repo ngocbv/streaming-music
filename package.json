@@ -22,6 +22,7 @@
     "screenfull": "^3.2.0",
     "soundcloud": "^3.1.2",
     "soundcloud-audio": "^1.1.0",
+    "source-map": "^0.5.6",
     "webpack": "~1.14.0"
   },
   "scripts": {

@@ -11,7 +11,5 @@ development:
   database: streaming_music_development
 
 production:
+  <<: *default
   database: streaming_musci_production
-  adapter: postgresql
-  encoding: unicode
-  pool: 5

@@ -72,7 +72,7 @@ class Movie extends React.Component {
           height="600px"
           playing={playing}
           volume={volume}
-          url={"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"}
+          url={"https://www.youtube.com/watch?v=2fngvQS_PmQ"}
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onProgress={this.handleProgress}
