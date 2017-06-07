@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import {Router, Route, Link, browserHistory} from "react-router"
+import {Router, Route, Link, browserHistory, IndexRoute} from "react-router"
 
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
@@ -13,6 +13,7 @@ import Movie from "./Movie";
 const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={Movie} />
     	<Route path="/movies" component={Movie} />
     	<Route path="/uploader" component={Uploader} />
     </Route>
