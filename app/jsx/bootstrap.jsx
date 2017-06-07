@@ -7,10 +7,14 @@ injectTapEventPlugin();
 global.CallAPI = require("./CallAPI");
 
 import App from "./app";
+import Uploader from "./Uploader";
+import Movie from "./Movie";
 
 const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+    	<Route path="/movies" component={Movie} />
+    	<Route path="/uploader" component={Uploader} />
     </Route>
   </Router>
 );

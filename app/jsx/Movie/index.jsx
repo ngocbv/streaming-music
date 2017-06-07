@@ -1,5 +1,7 @@
 import ReactPlayer from "react-player";
 import ControlBar from "../ControlBar";
+import screenfull from "screenfull";
+import { findDOMNode } from "react-dom";
 
 class Movie extends React.Component {
   constructor(props) {
@@ -54,19 +56,23 @@ class Movie extends React.Component {
     this.setState({volume: volume});
   }
 
+  handleFullScreen = () => {
+    screenfull.request(findDOMNode(this.refs.player))
+  }
+
   render() {
     let { playing, volume, played } = this.state;
 
     return (
-      <div>
+      <div style={{marginLeft: "10%", width: "80%", marginBottom: "50px", float: "left"}}>
         <ReactPlayer
-          controls={true}
+          controls={false}
           ref="player"
-          width="1000px"
-          height="660px"
+          width="100%"
+          height="600px"
           playing={playing}
           volume={volume}
-          url={"https://www.youtube.com/watch?v=2fngvQS_PmQ"}
+          url={"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"}
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onProgress={this.handleProgress}
@@ -77,6 +83,7 @@ class Movie extends React.Component {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onChangeVolume={this.handleChangeVolume}
+          onFullScreen={this.handleFullScreen}
           played={played}
         />
       </div>
