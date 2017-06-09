@@ -29,6 +29,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
       mui: "material-ui",
+      update: "react-addons-update",
     })
   ],
 }

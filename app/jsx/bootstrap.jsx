@@ -7,8 +7,8 @@ injectTapEventPlugin();
 global.CallAPI = require("./CallAPI");
 
 import App from "./app";
-import Uploader from "./Uploader";
-import Movie from "./Movie";
+import Uploader from "./components/Uploader";
+import Movie from "./components/Movie";
 
 const router = (
   <Router history={browserHistory}>
@@ -20,6 +20,16 @@ const router = (
   </Router>
 );
 
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducers from "./reducers";
+
+const store = createStore(reducers);
+
 $(document).on("ready page:load", function() {
- ReactDOM.render(router, document.getElementById("react-wrapper"));
+  ReactDOM.render(
+ 	  <Provider store={store}>
+ 	    {router}
+ 	  </Provider>, document.getElementById("react-wrapper")
+  );
 });
