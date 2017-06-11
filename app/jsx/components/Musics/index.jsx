@@ -35,6 +35,8 @@ class Musics extends React.Component {
     this.props.onChangeSong({id, url});
     this.props.onPlay();
     CallAPI.Player.changeSong(() => {}, id);
+    let song = this.state.songs.find(song => song.id === id);
+    if (song) document.title = song.name;
   }
 
   handleEndSong = () => {
