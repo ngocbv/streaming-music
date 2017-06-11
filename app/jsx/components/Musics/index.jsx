@@ -1,24 +1,28 @@
 import Player from "../Player";
 import { connect } from "react-redux";
-import { setSongList, play } from "../../actions";
+import { setSongList, play, changeSong } from "../../actions";
 
 class Musics extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			playingUrl: "",
-			playing: false,
 			songs: [],
 		}
 	}
 
 	componentDidMount() {
 		CallAPI.Song.getList(this.handleGetListCallback);
-	}
-
-	// componentWillReceiveProps(nextProps) {
-	// 	console.log(nextProps)
-	// }
+    RailsApp.cable.subscriptions.create("PlayersChannel", {
+      received: (data) => {
+        switch(data["type"]) {
+          case "change_song":
+            this.props.onChangeSong(data.value);
+						this.props.onPlay();
+            break;
+        }
+      }
+    });
+  }
 
 	handleGetListCallback = (status, data) => {
 		this.props.onSetSongList(data.songs);
@@ -27,15 +31,15 @@ class Musics extends React.Component {
 		});
 	}
 
-	handleClickSong = (url) => {
-		this.setState({
-			playingUrl: url,
-		});
+	handleClickSong = (id, url) => {
+		this.props.onChangeSong({id, url});
 		this.props.onPlay();
+		CallAPI.Player.changeSong(() => {}, id);
 	}
 
 	render() {
-		console.log(this.props)
+		let playingSong = this.props.playingSong;
+
 		return (
 			<div>
 				<mui.Table>
@@ -44,7 +48,8 @@ class Musics extends React.Component {
 	            <mui.TableRow
 	            	key={index}
 	            	className="pointer"
-	            	onTouchTap={() => this.handleClickSong(song.url)}
+	            	selected={playingSong.id === song.id}
+	            	onTouchTap={() => this.handleClickSong(song.id, song.url)}
 	            >
 	              <mui.TableRowColumn>{song.id}</mui.TableRowColumn>
 	              <mui.TableRowColumn>{song.name}</mui.TableRowColumn>
@@ -55,7 +60,7 @@ class Musics extends React.Component {
 	      </mui.Table>
 
 	      <Player
-	      	url={this.state.playingUrl}
+	      	url={playingSong.url}
 	      	playing={this.state.playing}
 	      />
 			</div>
@@ -69,6 +74,7 @@ const mapStateToProps = (state, ownProps) => {
 	console.log(state.music.songs)
 	return {
 		songs: state.music.songs || [{name: "Shape of you"}],
+		playingSong: state.player.playingMedia,
 	};
 }
 
@@ -76,6 +82,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onSetSongList: (songs) => {dispatch(setSongList(songs))},
     onPlay: () => {dispatch(play())},
+    onChangeSong: (song) => {dispatch(changeSong(song))},
 	};
 }
 

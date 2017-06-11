@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :songs
-    resources :movies do
+    resources :movies
+    resources :players do
       collection do
         post "play"
         post "pause"
         post "seek"
+        post "change_song"
       end
     end
     resources :attachments, only: [:create, :destroy]

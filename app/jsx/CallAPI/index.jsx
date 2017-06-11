@@ -1,9 +1,9 @@
-import Movie from "./Movie";
+import Player from "./Player";
 import Attachment from "./Attachment";
 import Song from "./Song";
 
 module.exports = {
-  Movie,
+  Player,
   Attachment,
   Song,
 };

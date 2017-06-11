@@ -15,7 +15,7 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
-    RailsApp.cable.subscriptions.create("MoviesChannel", {
+    RailsApp.cable.subscriptions.create("PlayersChannel", {
       received: (data) => {
         switch(data["type"]) {
           case "play":
@@ -33,16 +33,16 @@ class Player extends React.Component {
   }
 
   handlePlay = () => {
-    CallAPI.Movie.play(() => {});
+    CallAPI.Player.play(() => {});
   }
 
   handlePause = () => {
-    CallAPI.Movie.pause(() => {});
+    CallAPI.Player.pause(() => {});
   }
 
   handleSeek = (value) => {
     this.refs.player.seekTo(value);
-    CallAPI.Movie.seek(() => {}, {seek_value: value});
+    CallAPI.Player.seek(() => {}, {seek_value: value});
   }
 
   handleProgress = (data) => {
@@ -93,8 +93,8 @@ class Player extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    playing: state.movie.playing,
-    played: state.movie.played,
+    playing: state.player.playing,
+    played: state.player.played,
   }
 }
 

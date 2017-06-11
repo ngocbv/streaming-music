@@ -3,9 +3,10 @@ const defaultState = {
   played: 0,
   volume: 0.8,
   mute: 0,
+  playingMedia: {id: null, url: null},
 }
 
-const movie = (state = defaultState, action) => {
+const player = (state = defaultState, action) => {
   switch(action.type) {
     case "TOGGLE_PLAY":
       return update(state, {
@@ -23,9 +24,13 @@ const movie = (state = defaultState, action) => {
       return update(state, {
         played: {$set: action.value},
       });
+    case "CHANGE_SONG":
+      return update(state, {
+        playingMedia: {$set: action.media},
+      });
     default:
       return state;
   }
 }
 
-export default movie;
+export default player;

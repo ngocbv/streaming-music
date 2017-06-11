@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import movie from "./movie";
+import player from "./player";
 import music from "./music";
 
-const player = combineReducers({
-	movie,
+const streaming_media = combineReducers({
+	player,
 	music,
 });
 
-export default player;
+export default streaming_media;

@@ -4,6 +4,7 @@
     played: 0,
     volume: 0,
     mute: 0,
+    playingMedia: {id: null, url: null}
   },
   musics: [],
 }
