@@ -1,8 +1,9 @@
 {
-  movie: {
+  player: {
     playing: true,
     played: 0,
     volume: 0,
     mute: 0,
-  }
+  },
+  musics: [],
 }

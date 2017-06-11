@@ -5,17 +5,20 @@ class Uploader extends React.Component {
     super(props);
   }
 
+  getAttachmentId() {
+    return this.attachmentId;
+  }
+
   handleUploadFiles = (event) => {
     var file = event.target.files[0];
     var attachment = new FormData();
 
-    if (this.validateFile(file)) {
-      attachment.append("attachment", file);
-      this.setState({
-        processing: true,
-      });
-      API.Attachment.create(this.handleSaveCallback, attachment);
-    }
+    attachment.append("attachment", file);
+    CallAPI.Attachment.create(this.handleSaveCallback, attachment);
+  }
+
+  handleSaveCallback = (status, data) => {
+    this.attachmentId = data.attachment.id;
   }
 
   render() {
@@ -32,6 +35,7 @@ class Uploader extends React.Component {
             type="file"
             onChange={this.handleUploadFiles}
             className="file-input"
+            multiple="multiple"
           />
         </mui.RaisedButton>
       </div>

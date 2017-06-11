@@ -3,7 +3,6 @@ class CreateSongs < ActiveRecord::Migration[5.0]
     create_table :songs do |t|
       t.string :name
       t.text :description
-      t.attachment :attachment
 
       t.timestamps
     end

@@ -9,13 +9,16 @@ global.CallAPI = require("./CallAPI");
 import App from "./app";
 import Uploader from "./components/Uploader";
 import Movie from "./components/Movie";
+import MusicForm from "./components/Musics/MusicForm";
+import Musics from "./components/Musics";
 
 const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Movie} />
+      <Route path="/musics" component={Musics} />
+    	<Route path="/musics/uploader" component={MusicForm} />
     	<Route path="/movies" component={Movie} />
-    	<Route path="/uploader" component={Uploader} />
     </Route>
   </Router>
 );

@@ -1,4 +1,17 @@
 class Song < ApplicationRecord
-  has_attached_file :attachment
-  validates_attachment_content_type :attachment, content_type: []
+	attr_accessor :attachment_id
+
+  has_one :attachment, as: :attachmentable, dependent: :destroy
+
+  after_create :update_attachmentable
+
+  def url
+  	attachment ? attachment.attachment.url : nil
+  end
+
+  private
+  def update_attachmentable
+  	attachment = Attachment.find_by_id attachment_id
+  	attachment.update_attributes attachmentable_type: "song", attachmentable_id: self.id
+  end
 end

@@ -14,3 +14,8 @@ export const progress = (value) => ({
   type: "PROGRESS",
   value,
 });
+
+export const setSongList = (songs) => ({
+	type: "SET_SONG_LIST",
+	songs: songs,
+});

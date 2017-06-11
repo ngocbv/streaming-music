@@ -2,6 +2,7 @@ import BaseAPI from "./BaseAPI";
 
 export default class Movie extends BaseAPI {
   static play(callback, options = {}) {
+    console.log(options)
     this.sendAjax(callback, {
       url: "movies/play",
       method: "POST",
