@@ -12,6 +12,6 @@ class Song < ApplicationRecord
   private
   def update_attachmentable
   	attachment = Attachment.find_by_id attachment_id
-  	attachment.update_attributes attachmentable_type: "song", attachmentable_id: self.id
+  	attachment.update_attributes attachmentable_type: "song", attachmentable_id: self.id if attachment
   end
 end

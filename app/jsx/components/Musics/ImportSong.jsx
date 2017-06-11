@@ -1,6 +1,6 @@
 import FileCloudUpload from "material-ui/svg-icons/file/cloud-upload";
 
-class Uploader extends React.Component {
+class ImportSong extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -9,16 +9,22 @@ class Uploader extends React.Component {
     return this.attachmentId;
   }
 
-  handleUploadFiles = (event) => {
-    var file = event.target.files[0];
-    var attachment = new FormData();
+  handleImportSongs = (event) => {
+    let files = event.target.files;
+    console.log(files)
 
-    attachment.append("attachment", file);
-    CallAPI.Attachment.create(this.handleSaveCallback, attachment);
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      console.log(file);
+      let attachment = new FormData();
+      attachment.append("attachment", file);
+      CallAPI.Song.import(this.handleSaveCallback, attachment);
+    }
   }
 
   handleSaveCallback = (status, data) => {
-    this.attachmentId = data.attachment.id;
+    console.log(status);
+    console.log(data);
   }
 
   render() {
@@ -33,8 +39,9 @@ class Uploader extends React.Component {
         >
           <input
             type="file"
-            onChange={this.handleUploadFiles}
+            onChange={this.handleImportSongs}
             className="file-input"
+            multiple="multiple"
           />
         </mui.RaisedButton>
       </div>
@@ -42,4 +49,4 @@ class Uploader extends React.Component {
   }
 }
 
-export default Uploader;
+export default ImportSong;

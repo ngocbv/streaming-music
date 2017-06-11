@@ -13,6 +13,17 @@ class Api::SongsController < Api::BaseApiController
     end
   end
 
+  def import
+    song = Song.create! name: params[:attachment].original_filename
+    attachment = Attachment.new attachment: params[:attachment],
+      attachmentable_type: "song", attachmentable_id: song.id
+    if attachment.save
+      response_success attachment: attachment
+    else
+      response_fail attachment.errors.messages.except :attachment
+    end
+  end
+
   private
   def song_params
     params.require(:song).permit(:name, :description, :attachment_id)

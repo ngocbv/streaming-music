@@ -11,6 +11,7 @@ import Uploader from "./components/Uploader";
 import Movie from "./components/Movie";
 import MusicForm from "./components/Musics/MusicForm";
 import Musics from "./components/Musics";
+import ImportSong from "./components/Musics/ImportSong";
 
 const router = (
   <Router history={browserHistory}>
@@ -18,6 +19,7 @@ const router = (
       <IndexRoute component={Movie} />
       <Route path="/musics" component={Musics} />
     	<Route path="/musics/uploader" component={MusicForm} />
+      <Route path="/musics/import_songs" component={ImportSong} />
     	<Route path="/movies" component={Movie} />
     </Route>
   </Router>

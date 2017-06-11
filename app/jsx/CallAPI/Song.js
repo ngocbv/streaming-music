@@ -15,4 +15,14 @@ export default class Song extends BaseAPI {
       data: song
     });
   }
+
+  static import(callback, attachment) {
+    this.sendAjax(callback, {
+      url: "songs/import",
+      method: "POST",
+      processData: false,
+      contentType: false,
+      data: attachment
+    });
+  }
 }

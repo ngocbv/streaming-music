@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   mount ActionCable.server => "/cable"
 
   namespace :api do
-    resources :songs
+    resources :songs do
+      collection do
+        post "import"
+      end
+    end
+
     resources :movies
     resources :players do
       collection do
