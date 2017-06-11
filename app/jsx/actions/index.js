@@ -16,11 +16,11 @@ export const progress = (value) => ({
 });
 
 export const setSongList = (songs) => ({
-	type: "SET_SONG_LIST",
-	songs: songs,
+  type: "SET_SONG_LIST",
+  songs: songs,
 });
 
 export const changeSong = (media) => ({
-	type: "CHANGE_SONG",
-	media: media,
+  type: "CHANGE_SONG",
+  media: media,
 });

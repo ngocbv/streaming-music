@@ -47,6 +47,9 @@ class Player extends React.Component {
 
   handleProgress = (data) => {
     this.props.onProgress(data.played);
+    if (this.props.played === 1) {
+      this.props.onEndSong();
+    }
   }
 
   handleChangeVolume = (volume) => {
