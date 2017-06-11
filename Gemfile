@@ -29,6 +29,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "capistrano", "~> 3.8"
   gem "capistrano3-puma"
+  gem "capistrano-rbenv"
 end
 
 group :production do

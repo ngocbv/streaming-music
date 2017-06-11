@@ -12,4 +12,4 @@ development:
 
 production:
   <<: *default
-  database: streaming_musci_production
+  database: streaming_music_production
