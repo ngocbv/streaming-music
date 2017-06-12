@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         post "import"
       end
     end
+    resources :parties
 
     resources :movies
     resources :players do
