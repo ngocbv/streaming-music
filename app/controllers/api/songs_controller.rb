@@ -14,7 +14,7 @@ class Api::SongsController < Api::BaseApiController
   end
 
   def import
-    song = Song.create! name: params[:attachment].original_filename.titleize
+    song = Song.create! name: params[:attachment].original_filename.gsub("-","@").titleize.gsub("@", "-")
     attachment = Attachment.new attachment: params[:attachment],
       attachmentable_type: "song", attachmentable_id: song.id
     if attachment.save
