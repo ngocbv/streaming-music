@@ -15,7 +15,7 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
-    RailsApp.cable.subscriptions.create("PlayersChannel", {
+    RailsApp.cable.subscriptions.create({channel: "PlayersChannel", party: this.props.partyId}, {
       received: (data) => {
         switch(data["type"]) {
           case "play":
@@ -33,16 +33,16 @@ class Player extends React.Component {
   }
 
   handlePlay = () => {
-    CallAPI.Player.play(() => {});
+    CallAPI.Player.play(() => {}, {party_id: this.props.partyId});
   }
 
   handlePause = () => {
-    CallAPI.Player.pause(() => {});
+    CallAPI.Player.pause(() => {}, {party_id: this.props.partyId});
   }
 
   handleSeek = (value) => {
     this.refs.player.seekTo(value);
-    CallAPI.Player.seek(() => {}, {seek_value: value});
+    CallAPI.Player.seek(() => {}, {seek_value: value, party_id: this.props.partyId});
   }
 
   handleProgress = (data) => {
