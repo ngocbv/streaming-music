@@ -26,11 +26,11 @@ export default class Player extends BaseAPI {
     });
   }
 
-  static changeSong(callback, songId) {
+  static changeSong(callback, songId, partyId) {
     this.sendAjax(callback, {
       url: "players/change_song",
       method: "POST",
-      data: {song_id: songId},
+      data: {song_id: songId, party_id: partyId},
     });
   }
 

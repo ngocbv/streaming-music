@@ -12,7 +12,7 @@ class Musics extends React.Component {
 
   componentDidMount() {
     CallAPI.Song.getList(this.handleGetListCallback);
-    RailsApp.cable.subscriptions.create("PlayersChannel", {
+    RailsApp.cable.subscriptions.create({channel: "PlayersChannel", party: this.props.partyId}, {
       received: (data) => {
         switch(data["type"]) {
           case "change_song":
@@ -34,7 +34,7 @@ class Musics extends React.Component {
   handleClickSong = (id, url) => {
     this.props.onChangeSong({id, url});
     this.props.onPlay();
-    CallAPI.Player.changeSong(() => {}, id);
+    CallAPI.Player.changeSong(() => {}, id, this.props.partyId);
     let song = this.state.songs.find(song => song.id === id);
     if (song) document.title = song.name;
   }
@@ -73,6 +73,7 @@ class Musics extends React.Component {
           url={playingSong.url}
           playing={this.state.playing}
           onEndSong={this.handleEndSong}
+          partyId={this.props.partyId}
         />
       </div>
     );
