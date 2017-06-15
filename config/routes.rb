@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         post "pause"
         post "seek"
         post "change_song"
+        post "change_movie"
       end
     end
     resources :attachments, only: [:create, :destroy]

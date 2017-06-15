@@ -20,4 +20,10 @@ class Api::PlayersController < Api::BaseApiController
     PlayerJob.perform_later "change_song", params[:party_id], {id: song.id, url: song.url}
     response_success
   end
+
+  def change_movie
+    movie = Movie.find_by_id params[:movie_id]
+    PlayerJob.perform_later "change_movie", params[:party_id], {id: movie.id, url: movie.url}
+    response_success
+  end
 end

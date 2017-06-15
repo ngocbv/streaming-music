@@ -8,21 +8,23 @@ global.CallAPI = require("./CallAPI");
 
 import App from "./app";
 import Uploader from "./components/Uploader";
-import Movie from "./components/Movie";
+import Movies from "./components/Movies";
 import MusicForm from "./components/Musics/MusicForm";
 import Musics from "./components/Musics";
 import ImportSong from "./components/Musics/ImportSong";
 import Party from "./components/Parties/Party";
+import Cinema from "./components/Cinema";
 
 const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Movie} />
+      <IndexRoute component={Movies} />
       <Route path="/musics" component={Musics} />
     	<Route path="/musics/uploader" component={MusicForm} />
       <Route path="/musics/import_songs" component={ImportSong} />
-    	<Route path="/movies" component={Movie} />
+    	<Route path="/movies" component={Movies} />
       <Route path="/parties/:id" component={Party} />
+      <Route path="/cinema/:id" component={Cinema} />
     </Route>
   </Router>
 );
