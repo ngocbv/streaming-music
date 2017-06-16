@@ -68,11 +68,12 @@ class Player extends React.Component {
     console.log(playing)
 
     return (
-      <div style={{float: "left"}}>
+      <div style={{float: "left", width: "100%"}}>
         <ReactPlayer
           controls={false}
           ref="player"
-          height="0px"
+          height="760px"
+          width="100%"
           playing={playing}
           volume={volume}
           url={url}

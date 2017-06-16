@@ -52,6 +52,7 @@ class Movies extends React.Component {
 
     return (
       <div>
+
         <mui.Table className="movie-list">
           <mui.TableBody>
             {this.state.movies.map((movie, index) => (
@@ -68,7 +69,6 @@ class Movies extends React.Component {
             }
           </mui.TableBody>
         </mui.Table>
-
         <Player
           url={playingMovie.url}
           playing={this.state.playing}
