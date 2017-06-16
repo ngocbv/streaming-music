@@ -34,4 +34,11 @@ export default class Player extends BaseAPI {
     });
   }
 
+  static changeMovie(callback, movieId, partyId) {
+    this.sendAjax(callback, {
+      url: "players/change_movie",
+      method: "POST",
+      data: {movie_id: movieId, party_id: partyId},
+    });
+  }
 }

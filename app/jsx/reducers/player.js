@@ -28,6 +28,10 @@ const player = (state = defaultState, action) => {
       return update(state, {
         playingMedia: {$set: action.media},
       });
+    case "CHANGE_MOVIE":
+      return update(state, {
+        playingMedia: {$set: action.media},
+      });
     default:
       return state;
   }

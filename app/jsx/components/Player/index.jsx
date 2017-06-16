@@ -63,6 +63,7 @@ class Player extends React.Component {
   render() {
     let { volume } = this.state;
     let { playing, played, url } = this.props;
+    console.log(url);
     console.log("playing")
     console.log(playing)
 

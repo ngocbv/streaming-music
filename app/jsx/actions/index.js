@@ -24,3 +24,13 @@ export const changeSong = (media) => ({
   type: "CHANGE_SONG",
   media: media,
 });
+
+export const setMovieList = (movies) => ({
+  type: "SET_MOVIE_LIST",
+  movies: movies,
+});
+
+export const changeMovie = (media) => ({
+  type: "CHANGE_MOVIE",
+  media: media,
+});
