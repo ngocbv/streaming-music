@@ -13,6 +13,15 @@ class Api::MoviesController < Api::BaseApiController
     end
   end
 
+  def show
+    movie = Movie.find_by_id params[:id]
+    if movie
+      response_success movie: movie
+    else
+      response_fail
+    end
+  end
+
   private
   def movie_params
     params.require(:movie).permit(:name, :description, :url)

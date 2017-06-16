@@ -15,4 +15,10 @@ export default class Movie extends BaseAPI {
       data: movie,
     });
   }
+
+  static get(callback, movieId) {
+    this.sendAjax(callback, {
+      url: `movies/${movieId}`,
+    });
+  }
 }
