@@ -4,8 +4,8 @@ require "nokogiri"
 require "aes"
 
 class GetLinkFilmService
-  def initialize
-    @phimmoi_id = "chua-te-cua-nhung-chiec-nhan-1-hiep-hoi-nhan-than-319"
+  def initialize phim_id
+    @phimmoi_id = phim_id
     @domain = "http://www.phimmoi.net"
   end
 
@@ -17,8 +17,13 @@ class GetLinkFilmService
     media = json["medias"].last
 
     url = media["url"]
-    byebug
     password = "PhimMoi.Net@" + episode_id.to_s
+
+    {
+      provider: "phimmoi",
+      stream_url: decode_url(url, password),
+      resolution: media["resolution"],
+    }
   end
 
   def get_episode_url
@@ -28,7 +33,8 @@ class GetLinkFilmService
     url.gsub! "javascript", "json"
   end
 
-  def decodeUrl url, password
-
+  def decode_url url, password
+    cipher = Gibberish::AES::CBC.new password
+    cipher.decrypt url
   end
 end

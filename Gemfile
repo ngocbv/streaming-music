@@ -21,6 +21,7 @@ gem "friendly_id", "~> 5.1.0"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "http"
 gem "nokogiri"
+gem "gibberish"
 
 group :development, :test do
   gem "byebug", platform: :mri

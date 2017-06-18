@@ -22,10 +22,13 @@ class WatchMovie extends React.Component {
   }
 
   render() {
+    let { movie } = this.state;
+    let url = movie.url || movie.stream_media && movie.stream_media.stream_url
     return (
       <div>
         <Player
-          url={this.state.movie.url}
+          url={url}
+          height="760px"
         />
       </div>
     );
