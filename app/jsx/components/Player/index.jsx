@@ -72,8 +72,9 @@ class Player extends React.Component {
         <ReactPlayer
           controls={false}
           ref="player"
-          height="760px"
+          height={this.props.height || "0px"}
           width="100%"
+          style={{backgroundColor: "black",}}
           playing={playing}
           volume={volume}
           url={url}

@@ -74,6 +74,7 @@ class Movies extends React.Component {
           playing={this.state.playing}
           onEndMovie={this.handleEndMovie}
           partyId={this.props.partyId}
+          height="760px"
         />
       </div>
     );
