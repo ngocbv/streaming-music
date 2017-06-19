@@ -1,6 +1,10 @@
 class Api::MoviesController < Api::BaseApiController
   def index
-    movies = Movie.all
+    if params["query"]
+      movies = Movie.search_by_query(params["query"]).limit(50)
+    else
+      movies = Movie.all.limit(50)
+    end
     response_success movies: movies
   end
 
