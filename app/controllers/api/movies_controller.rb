@@ -20,7 +20,7 @@ class Api::MoviesController < Api::BaseApiController
   def show
     movie = Movie.find_by_id params[:id]
     if movie
-      response_success movie: movie
+      response_success movie: movie.as_json({methods: ["stream_media"]})
     else
       response_fail
     end

@@ -15,6 +15,7 @@ import Musics from "./components/Musics";
 import ImportSong from "./components/Musics/ImportSong";
 import Party from "./components/Parties/Party";
 import Cinema from "./components/Cinema";
+import Helper from "./Helper";
 
 const router = (
   <Router history={browserHistory}>
@@ -39,9 +40,10 @@ import reducers from "./reducers";
 const store = createStore(reducers);
 
 $(document).on("ready page:load", function() {
+  ReactDOM.render(<Helper />, document.getElementById("react-helper"));
   ReactDOM.render(
- 	  <Provider store={store}>
- 	    {router}
- 	  </Provider>, document.getElementById("react-wrapper")
+    <Provider store={store}>
+      {router}
+    </Provider>, document.getElementById("react-wrapper")
   );
 });

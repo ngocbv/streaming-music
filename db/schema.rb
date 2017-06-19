@@ -69,17 +69,14 @@ ActiveRecord::Schema.define(version: 20170619082325) do
     t.string   "slug"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["slug"], name: "index_parties_on_slug", unique: true, using: :btree
   end
 
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description",             limit: 65535
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_foreign_key "movie_categories", "categories"

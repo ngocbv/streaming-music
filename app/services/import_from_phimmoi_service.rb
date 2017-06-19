@@ -17,7 +17,7 @@ class ImportFromPhimmoiService
     end
   end
 
-  def import_from_category category = "phim-hanh-dong"
+  def import_from_category category
     page = 1
     while true
       html = Nokogiri::HTML(open("http://www.phimmoi.net/the-loai/#{category}/page-#{page}.html"))

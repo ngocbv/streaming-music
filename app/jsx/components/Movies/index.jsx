@@ -112,6 +112,7 @@ class Movies extends React.Component {
                 title={<div title={movie.title}>{movie.title}</div>}
                 actionIcon={<mui.IconButton><StarBorder color="white" /></mui.IconButton>}
                 titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                onClick={() => Helper.transitionTo(`/movies/${movie.id}`)}
               >
                 <img src={movie.img || "http://phimmoi.newsuncdn.com/film/938/poster.thumb.jpg"} />
               </mui.GridTile>
