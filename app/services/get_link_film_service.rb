@@ -1,7 +1,6 @@
 require "http"
 require "open-uri"
 require "nokogiri"
-require "aes"
 
 class GetLinkFilmService
   def initialize phim_id
@@ -27,7 +26,7 @@ class GetLinkFilmService
   end
 
   def get_episode_url
-    request_url = "#{@domain}/phim/#{@phimmoi_id}/xem-phim.html"
+    request_url = "#{@domain}/#{@phimmoi_id}/xem-phim.html"
     res = Nokogiri::HTML(open(request_url))
     url = res.xpath("//html//body//script")[10].attributes["src"].value
     url.gsub! "javascript", "json"
