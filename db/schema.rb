@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619082325) do
+ActiveRecord::Schema.define(version: 20170619231209) do
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "attachmentable_type"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20170619082325) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cinemas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "movie_id"
+    t.string   "unique_token"
+    t.text     "description",  limit: 65535
+    t.integer  "host_user_id"
+    t.string   "slug"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["movie_id"], name: "index_cinemas_on_movie_id", using: :btree
+    t.index ["slug"], name: "index_cinemas_on_slug", unique: true, using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

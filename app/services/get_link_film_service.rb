@@ -27,6 +27,7 @@ class GetLinkFilmService
 
   def get_episode_url
     request_url = "#{@domain}/#{@phimmoi_id}/xem-phim.html"
+    puts request_url
     res = Nokogiri::HTML(open(request_url))
     url = res.xpath("//html//body//script")[10].attributes["src"].value
     url.gsub! "javascript", "json"

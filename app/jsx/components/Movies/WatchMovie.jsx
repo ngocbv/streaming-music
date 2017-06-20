@@ -11,7 +11,7 @@ class WatchMovie extends React.Component {
   }
 
   componentDidMount() {
-    CallAPI.Movie.get(this.handleGetMovieCallback, this.props.params.id);
+    // CallAPI.Movie.get(this.handleGetMovieCallback, this.props.params.id);
   }
 
   handleGetMovieCallback = (status, data) => {
@@ -22,13 +22,14 @@ class WatchMovie extends React.Component {
   }
 
   render() {
-    let { movie } = this.state;
+    let movie = this.props.movie || {};
     let url = movie.url || movie.stream_media && movie.stream_media.stream_url
     return (
       <div>
         <Player
           url={url}
           height="760px"
+          partyId={this.props.partyId}
         />
       </div>
     );
