@@ -76,6 +76,21 @@ class Movies extends React.Component {
     }
   }
 
+  handleWatchMovie = (movieId) => {
+    let cinema = {
+      cinema: {
+        movie_id: movieId,
+      },
+    };
+    CallAPI.Cinema.create(this.handleCreateCinemaCallback, cinema);
+  }
+
+  handleCreateCinemaCallback = (status, data) => {
+    if (!status) return;
+    let cinema = data.cinema;
+    Helper.transitionTo(`/cinema/${cinema.unique_token}`);
+  }
+
   render() {
     let playingMovie = this.props.playingMovie;
     let movies = this.state.movies.map(movie => ({
@@ -112,7 +127,7 @@ class Movies extends React.Component {
                 title={<div title={movie.title}>{movie.title}</div>}
                 actionIcon={<mui.IconButton><StarBorder color="white" /></mui.IconButton>}
                 titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                onClick={() => Helper.transitionTo(`/movies/${movie.id}`)}
+                onClick={() => this.handleWatchMovie(movie.id)}
               >
                 <img src={movie.img || "http://phimmoi.newsuncdn.com/film/938/poster.thumb.jpg"} />
               </mui.GridTile>

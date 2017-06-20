@@ -28,7 +28,6 @@ const router = (
       <Route path="/movies/:id" component={WatchMovie} />
       <Route path="/parties/:id" component={Party} />
       <Route path="/cinema/:id" component={Cinema} />
-      <Route path="/cinema/:id/:filmId" component={Cinema} />
     </Route>
   </Router>
 );
