@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       end
     end
     resources :parties
-    resources :cinemas
+    resources :cinemas do
+      member do
+        post "send_message"
+      end
+    end
 
     resources :movies
     resources :players do

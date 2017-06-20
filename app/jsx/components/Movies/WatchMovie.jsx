@@ -25,7 +25,7 @@ class WatchMovie extends React.Component {
     let movie = this.props.movie || {};
     let url = movie.url || movie.stream_media && movie.stream_media.stream_url
     return (
-      <div>
+      <div className="cinema">
         <Player
           url={url}
           height="760px"

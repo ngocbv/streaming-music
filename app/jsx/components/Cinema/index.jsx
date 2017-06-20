@@ -1,4 +1,5 @@
 import WatchMovie from "../Movies/WatchMovie";
+import Conversation from "./Conversation";
 
 class Cinema extends React.Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class Cinema extends React.Component {
         <WatchMovie
           movie={movie}
           partyId={cinema.unique_token}
+        />
+        <Conversation
+          cinemaId={cinema.unique_token}
         />
       </div>
     );

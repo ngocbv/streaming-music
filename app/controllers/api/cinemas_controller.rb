@@ -23,6 +23,12 @@ class Api::CinemasController < Api::BaseApiController
     end
   end
 
+  def send_message
+    byebug
+    ConversationJob.perform_later params[:id], params[:message]
+    response_success
+  end
+
   private
   def cinema_params
     params.require(:cinema).permit(:name, :movie_id, :description)

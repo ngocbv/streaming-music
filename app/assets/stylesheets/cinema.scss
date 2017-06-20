@@ -1,0 +1,32 @@
+.cinema {
+  width: 85%;
+}
+
+.conversation {
+  width: 100%;
+  float: left;
+  height: 400px;
+  padding: 25px 10px 0 10px;
+
+  .chat-list {
+    float: left;
+    width: 100%;
+
+    .chat {
+      width: 100%;
+    }
+
+    .owner {
+      text-align: right;
+    }
+  }
+}
+
+.type-box {
+  float: left;
+  width: 100%;
+
+  .input {
+    width: 100% !important;
+  }
+}
