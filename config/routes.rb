@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "react_app#home"
   mount ActionCable.server => "/cable"
 
   namespace :api do
+    post "sessions" => "sessions#create"
+    get "authentication" => "authentication#index"
     resources :songs do
       collection do
         post "import"

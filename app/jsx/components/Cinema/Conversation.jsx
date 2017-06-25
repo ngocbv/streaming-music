@@ -17,23 +17,14 @@ class Conversation extends React.Component {
 
   componentDidMount() {
     this.scrollToBottom();
-    CallAPI.Cinema.get(this.handleGetCinemaCallback, 1);
-    console.log(this.props.cinemaId)
 
     RailsApp.cable.subscriptions.create({channel: "ConversationChannel", id: this.props.cinemaId}, {
       received: (data) => {
-        console.log(data)
-        // switch(data["type"]) {
-        //   case "play":
-        //     this.props.onPlay();
-        //     break;
-        //   case "pause":
-        //     this.props.onPause();
-        //     break;
-        //   case "seek":
-        //     this.refs.player.seekTo(data["value"]);
-        //     break;
-        // }
+        let chats = update(this.state.chats, {$push: [data.message]});
+        this.setState({
+          chats: chats,
+          message: "",
+        }, () => {this.scrollToBottom()});
       }
     });
   }
@@ -57,13 +48,7 @@ class Conversation extends React.Component {
   handleKeyDownMessage = (event) => {
     if (event.keyCode === 13) {
       let message = event.target.value;
-      let chats = update(this.state.chats, {$push: [{by: "me", content: message}]});
-      CallAPI.Cinema.sendMessage(() => {}, this.props.cinemaId, message);
-
-      this.setState({
-        chats: chats,
-        message: "",
-      }, () => {this.scrollToBottom()});
+      CallAPI.Cinema.sendMessage(() => {}, this.props.cinemaId, {by: App.auth.id, content: message});
     }
   }
 
@@ -74,22 +59,23 @@ class Conversation extends React.Component {
           <div className="chat-list" id="chat-list">
             {
               this.state.chats.map((chat, index) => (
-                <div key={index} className={`chat ${chat.by === "me" ? "owner" : null}`}>
+                <div key={index} className={`chat ${parseInt(chat.by) === App.auth.id ? "owner" : null}`}>
                   {chat.content}
                 </div>
               ))
             }
           </div>
         </div>
-            <div className="type-box">
-              <mui.TextField
-                hintText="Enter something..."
-                className="input"
-                value={this.state.message}
-                onChange={this.handleChangeMessage}
-                onKeyDown={this.handleKeyDownMessage}
-              />
-            </div>
+          <div className="type-box">
+            <mui.TextField
+              hintText="Enter something..."
+              className="input"
+              value={this.state.message}
+              onChange={this.handleChangeMessage}
+              onKeyDown={this.handleKeyDownMessage}
+              disabled={!App.auth.id}
+            />
+          </div>
       </div>
     );
   }

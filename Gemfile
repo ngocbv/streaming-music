@@ -22,6 +22,8 @@ gem "bootstrap-sass", "~> 3.3.6"
 gem "http"
 gem "nokogiri"
 gem "gibberish"
+gem "devise"
+gem "active_model_serializers", "~> 0.10.0"
 
 group :development, :test do
   gem "byebug", platform: :mri

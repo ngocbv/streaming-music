@@ -6,8 +6,9 @@ injectTapEventPlugin();
 
 global.CallAPI = require("./CallAPI");
 
-import App from "./app";
+import App from "./components/App";
 import Uploader from "./components/Uploader";
+import Login from "./components/Login";
 import Movies from "./components/Movies";
 import WatchMovie from "./components/Movies/WatchMovie";
 import MusicForm from "./components/Musics/MusicForm";
@@ -21,10 +22,11 @@ const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Movies} />
+      <Route path="/users/sign_in" component={Login} />
       <Route path="/musics" component={Musics} />
-    	<Route path="/musics/uploader" component={MusicForm} />
+      <Route path="/musics/uploader" component={MusicForm} />
       <Route path="/musics/import_songs" component={ImportSong} />
-    	<Route path="/movies" component={Movies} />
+      <Route path="/movies" component={Movies} />
       <Route path="/movies/:id" component={WatchMovie} />
       <Route path="/parties/:id" component={Party} />
       <Route path="/cinema/:id" component={Cinema} />

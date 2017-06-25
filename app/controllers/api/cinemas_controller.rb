@@ -25,7 +25,7 @@ class Api::CinemasController < Api::BaseApiController
 
   def send_message
     # byebug
-    ConversationJob.perform_later params[:id], params[:message]
+    ConversationJob.perform_later params[:id], params[:message].as_json
     response_success
   end
 
