@@ -18,6 +18,24 @@ class Conversation extends React.Component {
   componentDidMount() {
     this.scrollToBottom();
     CallAPI.Cinema.get(this.handleGetCinemaCallback, 1);
+    console.log(this.props.cinemaId)
+
+    RailsApp.cable.subscriptions.create({channel: "ConversationChannel", id: this.props.cinemaId}, {
+      received: (data) => {
+        console.log(data)
+        // switch(data["type"]) {
+        //   case "play":
+        //     this.props.onPlay();
+        //     break;
+        //   case "pause":
+        //     this.props.onPause();
+        //     break;
+        //   case "seek":
+        //     this.refs.player.seekTo(data["value"]);
+        //     break;
+        // }
+      }
+    });
   }
 
   shouldComponentUpdate() {
