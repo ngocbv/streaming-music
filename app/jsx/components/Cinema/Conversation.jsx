@@ -4,12 +4,7 @@ class Conversation extends React.Component {
 
     this.state = {
       chats: [
-        {by: "other", content: "Hello world!"},
-        {by: "other", content: "Hello world!"},
-        {by: "other", content: "Hello world!"},
-        {by: "other", content: "Hello world!"},
-        {by: "other", content: "Hello world!"},
-        {by: "other", content: "Hello world!"},
+        {by: "other", content: "Messages show here!"},
       ],
       message: "",
     };
