@@ -18,7 +18,6 @@ class Conversation extends React.Component {
         let chats = update(this.state.chats, {$unshift: [data.message]});
         this.setState({
           chats: chats,
-          message: "",
         }, () => {this.scrollToBottom()});
       }
     });
@@ -37,7 +36,10 @@ class Conversation extends React.Component {
 
   handleKeyDownMessage = (event) => {
     if (event.keyCode === 13) {
-      let message = event.target.value;
+      let message = this.state.message;
+      this.setState({
+        message: "",
+      });
       CallAPI.Cinema.sendMessage(() => {}, this.props.cinemaId, {by: App.auth.id, content: message});
     }
   }
@@ -49,7 +51,7 @@ class Conversation extends React.Component {
           <div className="chat-list" id="chat-list">
             {
               this.state.chats.map((chat, index) => (
-                <div key={index} className={`chat ${parseInt(chat.by) !== App.auth.id ? "owner" : null}`}>
+                <div key={index} className={`chat ${parseInt(chat.by) === App.auth.id ? "owner" : "other"}`}>
                   {chat.content}
                 </div>
               ))
