@@ -15,7 +15,7 @@ class Conversation extends React.Component {
 
     RailsApp.cable.subscriptions.create({channel: "ConversationChannel", id: this.props.cinemaId}, {
       received: (data) => {
-        let chats = update(this.state.chats, {$push: [data.message]});
+        let chats = update(this.state.chats, {$unshift: [data.message]});
         this.setState({
           chats: chats,
           message: "",
@@ -24,14 +24,9 @@ class Conversation extends React.Component {
     });
   }
 
-  shouldComponentUpdate() {
-    this.scrollToBottom();
-    return true;
-  }
-
   scrollToBottom = () => {
-    const node = document.getElementById("chat-list");
-    node.scrollIntoView(false);
+    // const node = document.getElementById("chat-list");
+    // node.scrollIntoView(false);
   }
 
   handleChangeMessage = (event) => {
@@ -49,12 +44,12 @@ class Conversation extends React.Component {
 
   render() {
     return (
-      <div style={{width: "15%", float: "right"}}>
+      <div style={{width: "15%", float: "right", marginTop: "50px"}}>
         <div className="awesome-scroll conversation">
           <div className="chat-list" id="chat-list">
             {
               this.state.chats.map((chat, index) => (
-                <div key={index} className={`chat ${parseInt(chat.by) === App.auth.id ? "owner" : null}`}>
+                <div key={index} className={`chat ${parseInt(chat.by) !== App.auth.id ? "owner" : null}`}>
                   {chat.content}
                 </div>
               ))
