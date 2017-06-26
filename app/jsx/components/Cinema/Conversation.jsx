@@ -40,7 +40,9 @@ class Conversation extends React.Component {
       this.setState({
         message: "",
       });
-      CallAPI.Cinema.sendMessage(() => {}, this.props.cinemaId, {by: App.auth.id, content: message});
+      if (message !== "") {
+        CallAPI.Cinema.sendMessage(() => {}, this.props.cinemaId, {by: App.auth.id, content: message});
+      }
     }
   }
 
