@@ -49,6 +49,16 @@ class Conversation extends React.Component {
   render() {
     return (
       <div style={{width: "15%", float: "right", marginTop: "50px"}}>
+        <div className="type-box">
+          <mui.TextField
+            hintText="Enter something..."
+            className="input"
+            value={this.state.message}
+            onChange={this.handleChangeMessage}
+            onKeyDown={this.handleKeyDownMessage}
+            disabled={!App.auth.id}
+          />
+        </div>
         <div className="awesome-scroll conversation">
           <div className="chat-list" id="chat-list">
             {
@@ -60,16 +70,6 @@ class Conversation extends React.Component {
             }
           </div>
         </div>
-          <div className="type-box">
-            <mui.TextField
-              hintText="Enter something..."
-              className="input"
-              value={this.state.message}
-              onChange={this.handleChangeMessage}
-              onKeyDown={this.handleKeyDownMessage}
-              disabled={!App.auth.id}
-            />
-          </div>
       </div>
     );
   }
