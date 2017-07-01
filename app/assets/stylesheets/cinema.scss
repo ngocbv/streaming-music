@@ -12,13 +12,36 @@
     float: left;
     width: 100%;
 
-    .chat {
-      width: 100%;
+    .other {
+      float: left;
+
+      .chat-content {
+        float: left;
+        background-color: #f1f0f0;
+        border-radius: 10px;
+        padding: 5px 8px 6px;
+        margin-top: 1px;
+        text-align: left;
+      }
     }
 
-    .other {
-      text-align: right;
-      color: blue;
+    .chat {
+      width: 90%;
+    }
+
+    .owner {
+      float: right;
+
+      .chat-content {
+        float: right;
+        text-align: right;
+        background-color: #8c72cb;
+        color: white;
+        padding: 5px 8px 6px;
+        border-radius: 10px;
+        margin-top: 1px;
+        text-align: left;
+      }
     }
   }
 }

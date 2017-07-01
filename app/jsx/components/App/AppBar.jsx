@@ -1,3 +1,5 @@
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
 export default class AppBar extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +16,18 @@ export default class AppBar extends React.Component {
   }
 
   render() {
-    let icons =(
+    let icons = (
       <div>
-        {App.auth.id ?
-          <mui.FlatButton label="Sign out" onClick={this.handleLogout} /> :
-          <mui.FlatButton label="Log in" onClick={() => Helper.transitionTo("/users/sign_in")} />
-        }
+        <mui.IconMenu
+          iconButtonElement={<mui.IconButton><MoreVertIcon /></mui.IconButton>}
+          anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+        >
+          {App.auth.id ?
+            <mui.MenuItem primaryText="Sign out" onClick={this.handleLogout} /> :
+            <mui.MenuItem primaryText="Log in" onClick={() => Helper.transitionTo("/users/sign_in")} />
+          }
+        </mui.IconMenu>
       </div>
     );
 

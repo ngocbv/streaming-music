@@ -1,3 +1,5 @@
+import SettingDrawer from "./SettingDrawer";
+
 class Conversation extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +9,8 @@ class Conversation extends React.Component {
         {by: "other", content: "Messages show here!"},
       ],
       message: "",
+      openSetting: false,
+      capitalize: true,
     };
   }
 
@@ -15,7 +19,7 @@ class Conversation extends React.Component {
 
     RailsApp.cable.subscriptions.create({channel: "ConversationChannel", id: this.props.cinemaId}, {
       received: (data) => {
-        let chats = update(this.state.chats, {$unshift: [data.message]});
+        let chats = update(this.state.chats, {$push: [data.message]});
         this.setState({
           chats: chats,
         }, () => {this.scrollToBottom()});
@@ -24,8 +28,9 @@ class Conversation extends React.Component {
   }
 
   scrollToBottom = () => {
-    // const node = document.getElementById("chat-list");
-    // node.scrollIntoView(false);
+    const node = document.getElementById("chat-list");
+    node.scrollTop = node.scrollHeight;
+
   }
 
   handleChangeMessage = (event) => {
@@ -46,29 +51,46 @@ class Conversation extends React.Component {
     }
   }
 
+  handleToggleCapitalize = (event, value) => {
+    console.log(value);
+    this.setState({
+      capitalize: !this.state.capitalize,
+    });
+  }
+
   render() {
+    let { capitalize, chats, message } = this.state;
+
     return (
       <div style={{width: "15%", float: "right", marginTop: "50px"}}>
-        <div className="type-box">
-          <mui.TextField
-            hintText="Enter something..."
-            className="input"
-            value={this.state.message}
-            onChange={this.handleChangeMessage}
-            onKeyDown={this.handleKeyDownMessage}
-            disabled={!App.auth.id}
-          />
+        <div>
+          {/*<SettingDrawer
+            capitalize={capitalize}
+            onToggleCapitalize={this.handleToggleCapitalize}
+          />*/}
         </div>
-        <div className="awesome-scroll conversation">
-          <div className="chat-list" id="chat-list">
+        <div className="awesome-scroll conversation" id="chat-list">
+          <div className="chat-list">
             {
-              this.state.chats.map((chat, index) => (
+              chats.map((chat, index) => (
                 <div key={index} className={`chat ${parseInt(chat.by) === App.auth.id ? "owner" : "other"}`}>
-                  {chat.content}
+                  <span className="chat-content">
+                    {chat.content}
+                  </span>
                 </div>
               ))
             }
           </div>
+        </div>
+        <div className="type-box">
+          <mui.TextField
+            hintText="Enter something..."
+            className="input"
+            value={message}
+            onChange={this.handleChangeMessage}
+            onKeyDown={this.handleKeyDownMessage}
+            disabled={!App.auth.id}
+          />
         </div>
       </div>
     );

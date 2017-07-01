@@ -14,6 +14,10 @@ class Helper extends React.Component {
     browserHistory.push(location);
   }
 
+  capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   render() {
   	return <div></div>
   }
