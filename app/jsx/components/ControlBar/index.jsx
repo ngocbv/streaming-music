@@ -16,6 +16,15 @@ class ControlBar extends React.Component {
     }
   }
 
+  formatTime(time = 0) {
+    let second = time%60;
+    time = Math.floor(time/60);
+    let minute = time%60;
+    let hour = Math.floor(time/60);
+    return `${hour > 0 ? `${hour}:` : ""}${minute < 10 ? `0${minute}` : minute}:${
+      second < 10 ? `0${second}` : second}`;
+  }
+
   handleDragStopSeek = () => {
     this.props.onSeek(this.state.played);
   }
@@ -64,6 +73,9 @@ class ControlBar extends React.Component {
                 onClick={this.props.onPlay}
               />
             }
+          </span>
+          <span className="timing">
+            {this.formatTime(this.props.playedSeconds)} / {this.formatTime(this.props.duration)}
           </span>
           <span className="volume">
             <div onClick={this.handleClickVolumeIcon}>{volumeIcon}</div>

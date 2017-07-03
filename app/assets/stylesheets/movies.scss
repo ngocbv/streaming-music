@@ -28,9 +28,14 @@
       }
     }
 
+    .timing {
+      color: white;
+    }
+
     .volume {
       float: left;
       width: 33px;
+      padding-left: 5px;
 
       svg {
         color: white !important;
@@ -41,6 +46,7 @@
       float: left;
       width: 110px;
       padding-top: 3px;
+      padding-left: 5px;
 
       div {
         margin-top: 0px !important;

@@ -3,7 +3,7 @@ import ControlBar from "../ControlBar";
 import screenfull from "screenfull";
 import { findDOMNode } from "react-dom";
 import { connect } from "react-redux";
-import { togglePlay, play, pause, progress } from "../../actions";
+import { togglePlay, play, pause, progress, setDuration } from "../../actions";
 
 class Player extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Player extends React.Component {
 
     this.state = {
       volume: 0.8,
+      duration: 0,
     }
   }
 
@@ -46,10 +47,14 @@ class Player extends React.Component {
   }
 
   handleProgress = (data) => {
-    this.props.onProgress(data.played);
+    this.props.onProgress(data.played || 0, Math.floor(data.playedSeconds || 0));
     if (this.props.played === 1) {
       this.props.onEndSong();
     }
+  }
+
+  handleDuration = (data) => {
+    this.props.onDuration(Math.floor(data));
   }
 
   handleChangeVolume = (volume) => {
@@ -62,10 +67,7 @@ class Player extends React.Component {
 
   render() {
     let { volume } = this.state;
-    let { playing, played, url } = this.props;
-    console.log(url);
-    console.log("playing")
-    console.log(playing)
+    let { playing, played, url, playedSeconds, duration } = this.props;
 
     return (
       <div style={{float: "left", width: "100%"}}>
@@ -81,6 +83,7 @@ class Player extends React.Component {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onProgress={this.handleProgress}
+          onDuration={this.handleDuration}
         />
         <ControlBar
           onSeek={this.handleSeek}
@@ -90,6 +93,8 @@ class Player extends React.Component {
           onChangeVolume={this.handleChangeVolume}
           onFullScreen={this.handleFullScreen}
           played={played}
+          playedSeconds={playedSeconds}
+          duration={duration}
         />
       </div>
     );
@@ -100,6 +105,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playing: state.player.playing,
     played: state.player.played,
+    playedSeconds: state.player.playedSeconds,
+    duration: state.player.duration,
   }
 }
 
@@ -108,7 +115,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onTogglePlay: () => {dispatch(togglePlay())},
     onPlay: () => {dispatch(play())},
     onPause: () => {dispatch(pause())},
-    onProgress: (value) => {dispatch(progress(value))},
+    onProgress: (played, playedSeconds) => {dispatch(progress(played, playedSeconds))},
+    onDuration: (duration) => {dispatch(setDuration(duration))},
   }
 }
 

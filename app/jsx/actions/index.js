@@ -10,9 +10,15 @@ export const pause = () => ({
   type: "PAUSE",
 });
 
-export const progress = (value) => ({
+export const progress = (played, playedSeconds) => ({
   type: "PROGRESS",
-  value,
+  played,
+  playedSeconds,
+});
+
+export const setDuration = (duration) => ({
+  type: "SET_DURATION",
+  duration,
 });
 
 export const setSongList = (songs) => ({

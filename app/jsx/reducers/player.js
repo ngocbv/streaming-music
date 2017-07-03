@@ -1,6 +1,8 @@
 const defaultState = {
   playing: false,
   played: 0,
+  playedSeconds: 0,
+  duration: 0,
   volume: 0.8,
   mute: 0,
   playingMedia: {id: null, url: null},
@@ -22,7 +24,12 @@ const player = (state = defaultState, action) => {
       });
     case "PROGRESS":
       return update(state, {
-        played: {$set: action.value},
+        played: {$set: action.played},
+        playedSeconds: {$set: action.playedSeconds},
+      });
+    case "SET_DURATION":
+      return update(state, {
+        duration: {$set: action.duration},
       });
     case "CHANGE_SONG":
       return update(state, {
