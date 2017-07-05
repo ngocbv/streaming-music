@@ -10,6 +10,10 @@ development:
   <<: *default
   database: streaming_music_development
 
+test:
+  <<: *default
+  database: streaming_music_test
+
 production:
   <<: *default
   database: streaming_music_production
