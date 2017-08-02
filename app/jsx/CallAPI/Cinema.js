@@ -24,4 +24,11 @@ export default class Cinema extends BaseAPI {
       },
     });
   }
+
+  static joinCinema(callback, token) {
+    this.sendAjax(callback, {
+      url: `cinemas/${token}/join_cinema`,
+      method: "POST",
+    });
+  }
 }

@@ -3,6 +3,8 @@ class Cinema < ApplicationRecord
   friendly_id :unique_token, use: :slugged
 
   belongs_to :movie
+  has_many :cinema_users, dependent: :destroy
+  has_many :users, through: :cinema_users
 
   before_create :assign_unique_token
 

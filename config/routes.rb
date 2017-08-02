@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :cinemas do
       member do
         post "send_message"
+        post "join_cinema"
       end
     end
 

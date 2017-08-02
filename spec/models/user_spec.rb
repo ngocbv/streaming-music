@@ -1,12 +1,8 @@
-require "rails_helper"
-
 RSpec.describe User, type: :model do
-  let(:user) {FactoryGirl.create :user}
-
-  context "email_required?" do
-    let!(:user) {FactoryGirl.create :user}
-    it "doesn't require" do
-      expect(user.email_required?).to eq(false)
+  context '#email_required?' do
+    let(:user) {FactoryGirl.create(:user)}
+    it 'return false' do
+      expect(user.email_required?).to be_falsy
     end
   end
 end

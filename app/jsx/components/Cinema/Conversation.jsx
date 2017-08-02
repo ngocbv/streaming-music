@@ -11,14 +11,24 @@ class Conversation extends React.Component {
       message: "",
       openSetting: false,
       capitalize: true,
+      joinedMembers: [],
     };
   }
 
   componentDidMount() {
     this.scrollToBottom();
 
+    RailsApp.cable.subscriptions.create({channel: "ViewerCinemaChannel", id: this.props.cinemaId}, {
+      received: (data) => {
+        this.setState({
+          joinedMembers: data.viewers,
+        });
+      }
+    });
+
     RailsApp.cable.subscriptions.create({channel: "ConversationChannel", id: this.props.cinemaId}, {
       received: (data) => {
+        console.log(data)
         let chats = update(this.state.chats, {$push: [data.message]});
         this.setState({
           chats: chats,
@@ -58,6 +68,19 @@ class Conversation extends React.Component {
     });
   }
 
+  renderMember() {
+    let members = this.state.joinedMembers;
+    console.log(members)
+
+    return (
+      <div>
+        {members.map(member => {
+          return <span key={member.id} title={member.name}><mui.Avatar src={member.image_url} /></span>
+        })}
+      </div>
+    );
+  }
+
   render() {
     let { capitalize, chats, message } = this.state;
 
@@ -68,6 +91,7 @@ class Conversation extends React.Component {
             capitalize={capitalize}
             onToggleCapitalize={this.handleToggleCapitalize}
           />*/}
+          {this.renderMember()}
         </div>
         <div className="awesome-scroll conversation" id="chat-list">
           <div className="chat-list">
