@@ -5,6 +5,9 @@ set :application, "streaming-media"
 set :repo_url, "git@github.com:NeverSmileK57CLC/streaming-music.git"
 
 set :branch, "master"
+if ENV["branch"] || ENV["tag"]
+  set :branch, ENV["branch"] || ENV["tag"]
+end
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/streaming-media"

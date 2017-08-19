@@ -12,13 +12,24 @@ class Cinema extends React.Component {
 
   componentDidMount() {
     CallAPI.Cinema.get(this.handleGetCinemaCallback, this.props.params.id);
+
+    // window.onbeforeunload = function() {
+    //   console.log("GAGAAG");
+    //   return "sdf";
+    // }
+    // window.addEventListener("beforeunload", (ev) => {
+    //   ev.preventDefault();
+    //   console.log("ABCDE")
+    //   ev.returnValue = "efefe";
+    //   return null;
+    // }, false);
   }
 
   handleGetCinemaCallback = (status, data) => {
     if (!status) return;
     this.setState({
       cinema: data.cinema,
-    });
+    }, () => CallAPI.Cinema.joinCinema(() => {}, this.props.params.id));
   }
 
   render() {

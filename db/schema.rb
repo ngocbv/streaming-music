@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625103812) do
+ActiveRecord::Schema.define(version: 20170701084140) do
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "attachmentable_type"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20170625103812) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cinema_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "cinema_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cinema_id"], name: "index_cinema_users_on_cinema_id", using: :btree
+    t.index ["user_id"], name: "index_cinema_users_on_user_id", using: :btree
   end
 
   create_table "cinemas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -106,10 +115,15 @@ ActiveRecord::Schema.define(version: 20170625103812) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "image_url"
+    t.string   "name"
+    t.integer  "role"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "cinema_users", "cinemas"
+  add_foreign_key "cinema_users", "users"
   add_foreign_key "movie_categories", "categories"
   add_foreign_key "movie_categories", "movies"
 end
