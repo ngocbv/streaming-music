@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :song do
-    name "song1"
+    name "Factory Song"
     association :attachment, factory: :attachment
   end
 end

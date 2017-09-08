@@ -30,5 +30,8 @@
   "scripts": {
     "webpack:deploy": "webpack -p",
     "heroku-postbuild": "npm run webpack:deploy"
+  },
+  "devDependencies": {
+    "webpack": "^1.14.0"
   }
 }
