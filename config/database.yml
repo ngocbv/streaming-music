@@ -4,15 +4,16 @@ default: &default
   pool: 5
   username: root
   password: 123456
-  socket: /var/run/mysqld/mysqld.sock
+  # socket: /var/run/mysqld/mysqld.sock
   # in MacOS
-  # socket: /tmp/mysql.sock
+  socket: /tmp/mysql.sock
+  password:
 
 development:
   <<: *default
   database: streaming_music_development
 
-test:
+test: &test
   <<: *default
   database: streaming_music_test
 
@@ -20,6 +21,9 @@ production:
   <<: *default
   database: streaming_music_production
 
-test:
+test: &test
   <<: *default
   database: streaming_music_test
+
+cucumber:
+  <<: *test
