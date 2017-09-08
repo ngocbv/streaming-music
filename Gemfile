@@ -36,11 +36,17 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
+  gem 'launchy' # to use save_and_open_page
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
+  gem 'capybara-screenshot'
+  gem 'fuubar' # progress bar when run rspec
 end
 
+gem "listen", "~> 3.0.5"
 group :development do
   gem "web-console", ">= 3.3.0"
-  gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "capistrano", "~> 3.8"
