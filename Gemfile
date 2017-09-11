@@ -35,6 +35,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'pg'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'selenium-webdriver'

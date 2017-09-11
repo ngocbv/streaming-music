@@ -7,8 +7,23 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
-
+      - image: circleci/ruby:2.4.1-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: myapp-test
+          RAILS_ENV: test
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: ""
+      # - image: circleci/mysql
+        # environment:
+        #   MYSQL_ALLOW_EMPTY_PASSWORD: true
+        #   MYSQL_DATABASE: circle_test
+        #   MYSQL_HOST: 127.0.0.1
+        #   MYSQL_ROOT_HOST: %
+        #   MYSQL_USER: root
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -18,6 +33,15 @@ jobs:
 
     steps:
       - checkout
+
+      # - run:
+      #     name: install dockerize
+      #     command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+      #     environment:
+      #       DOCKERIZE_VERSION: v0.3.0
+      # - run:
+      #     name: Wait for db
+      #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Download and cache dependencies
       - restore_cache:
@@ -37,10 +61,10 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: mysql -u ubuntu circle_test < my-database-setup.sql
+      # - run: mysql -u ubuntu circle_test < my-database-setup.sql
       - run: mv config/database.ci.yml config/database.yml
       - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec rake db:migrate
 
       # run tests!
       - run:
