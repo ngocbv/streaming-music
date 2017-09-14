@@ -2,7 +2,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: ubuntu
+  username: root
   password:
 
 development:
