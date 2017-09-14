@@ -1,8 +1,8 @@
 default: &default
-  adapter: postgresql
+  adapter: mysql
   encoding: utf8
   pool: 5
-  username: root
+  username: ubuntu
   password:
 
 development:
