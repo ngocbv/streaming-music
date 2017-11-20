@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701084140) do
+ActiveRecord::Schema.define(version: 20170914084936) do
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "attachmentable_type"
@@ -118,7 +118,10 @@ ActiveRecord::Schema.define(version: 20170701084140) do
     t.string   "image_url"
     t.string   "name"
     t.integer  "role"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["first_name", "last_name"], name: "index_users_on_first_name_and_last_name", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

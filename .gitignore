@@ -23,3 +23,4 @@ node_modules
 app/assets/javascripts/react-app.js
 public/system/attachments
 coverage
+config/database.yml

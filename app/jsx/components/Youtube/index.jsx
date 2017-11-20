@@ -8,7 +8,7 @@ class Youtube extends React.Component {
   }
 
   render() {
-    let videoId = this.props.id || "7_Nj6Z_uMQc";
+    let videoId = this.props.params.id || "7_Nj6Z_uMQc";
     return (
       <div className="cinema">
         <Player
