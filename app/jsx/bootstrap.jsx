@@ -15,6 +15,7 @@ import MusicForm from "./components/Musics/MusicForm";
 import Musics from "./components/Musics";
 import ImportSong from "./components/Musics/ImportSong";
 import Party from "./components/Parties/Party";
+import Youtube from "./components/Youtube"
 import Cinema from "./components/Cinema";
 import Helper from "./Helper";
 
@@ -30,6 +31,7 @@ const router = (
       <Route path="/movies/:id" component={WatchMovie} />
       <Route path="/parties/:id" component={Party} />
       <Route path="/cinema/:id" component={Cinema} />
+      <Route path="/youtube/:id" component={Youtube} />
     </Route>
   </Router>
 );

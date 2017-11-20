@@ -1,6 +1,6 @@
 set :stage, :production
 
-server "139.59.118.248", user: "deploy", roles: %w{app web}
+server "128.199.123.74", user: "deploy", roles: %w{app web}
 
 if ENV["branch"] || ENV["tag"]
   set :branch, ENV["branch"] || ENV["tag"]

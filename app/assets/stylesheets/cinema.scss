@@ -1,5 +1,13 @@
-.cinema {
-  width: 85%;
+@media (min-width: 576px) {
+  .cinema {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .cinema {
+    width: 85%;
+  }
 }
 
 .conversation {
