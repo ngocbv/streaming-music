@@ -24,6 +24,7 @@ gem "nokogiri"
 gem "gibberish"
 gem "devise"
 gem "active_model_serializers", "~> 0.10.0"
+gem "redis"
 
 group :development, :test do
   gem "byebug", platform: :mri
